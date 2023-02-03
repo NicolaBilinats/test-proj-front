@@ -2,9 +2,14 @@ import React from "react";
 import { observer } from "mobx-react";
 import { ICharacter as CharacterProps } from "../interfaces/ICharacter";
 
-const Character: React.FC<{ character: CharacterProps }> = observer(({ character }) => {
+interface ICharacterProps {
+    character: CharacterProps;
+    onClick: () => void;
+}
+
+const Character: React.FC<ICharacterProps> = observer(({ character,  onClick}) => {
     return (
-        <div className="w-1/3 p-3">
+        <div className="w-1/3 p-3" onClick={onClick}>
             <img
                 src={character.image}
                 className="w-full h-64 object-cover rounded-lg"
